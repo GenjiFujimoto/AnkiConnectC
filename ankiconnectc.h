@@ -5,10 +5,12 @@ typedef struct {
   char *deck;
   char *notetype;
 
-  size_t num_fields;
+  int num_fields;
   char **fieldnames;
   char **fieldentries;
 } ankicard;
 
+ankicard* new_ankicard();
 const char *search_query(const char *query, ResponseFunction respf);
 const char *addNote(ankicard ac);
+void print_anki_card(ankicard ac);
