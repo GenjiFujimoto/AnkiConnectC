@@ -88,7 +88,7 @@ search(const char* deck, const char* field, const char* entry, ResponseFunction 
 {
    char *request;
 
-   asprintf(&request, "{ \"action\": \"findCards\", \"version\": 6, \"params\": { \"query\" : \"\\\"deck: %s\\\" \\\"%s: %s\\\"\" } }", deck, field, entry);
+   asprintf(&request, "{ \"action\": \"findCards\", \"version\": 6, \"params\": { \"query\" : \"\\\"deck: %s\\\" \\\"%s:%s\\\"\" } }", deck, field, entry);
 
    const char *err = sendRequest(request, respf);
    free(request);
