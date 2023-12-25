@@ -6,7 +6,7 @@
 
 #include "ankiconnectc.h"
 
-const char* DEFAULT_AC_API_URL = "http://localhost:8765";
+#define DEFAULT_AC_API_URL "http://localhost:8765"
 
 ankicard*
 new_ankicard()
