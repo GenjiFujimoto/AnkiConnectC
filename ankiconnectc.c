@@ -84,11 +84,35 @@ sendRequest(char *request, ResponseFunction respfunc)
 }
 
 const char *
+search(const char* deck, const char* field, const char* entry, ResponseFunction respf)
+{
+   char *request;
+
+   asprintf(&request, "{ \"action\": \"findCards\", \"version\": 6, \"params\": { \"query\" : \"\\\"deck: %s\\\" \\\"%s: %s\\\"\" } }", deck, field, entry);
+
+   const char *err = sendRequest(request, respf);
+   free(request);
+   return err;
+}
+
+const char *
 search_query(const char *query, ResponseFunction respf)
 {
    char *request;
 
-   asprintf(&request, "{ \"action\": \"findCards\", \"version\": 6, \"params\": { \"%s\" } }", query);
+   asprintf(&request, "{ \"action\": \"findCards\", \"version\": 6, \"params\": { \"query\" : \"%s\" } }", query);
+
+   const char *err = sendRequest(request, respf);
+   free(request);
+   return err;
+}
+
+const char *
+action_query(const char *action, const char *query, ResponseFunction respf)
+{
+   char *request;
+
+   asprintf(&request, "{ \"action\": \"%s\", \"version\": 6, \"params\": { \"query\" : \"%s\" } }", action, query);
 
    const char *err = sendRequest(request, respf);
    free(request);
@@ -223,7 +247,7 @@ addNote(const ankicard ac)
                    "}"
                    );
 
-   printf("\n%s\n", request->str);
+   /* printf("\n%s\n", request->str); */
 
    err = sendRequest(request->str, check_add_response);
 
