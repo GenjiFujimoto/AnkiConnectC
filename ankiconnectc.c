@@ -23,7 +23,7 @@ new_ankicard()
 }
 
 void
-print_anki_card(ankicard ac)
+ac_print_anki_card(ankicard ac)
 {
    printf("Deck name: %s\n", ac.deck);
    printf("Notetype: %s\n", ac.notetype);
@@ -84,7 +84,7 @@ sendRequest(char *request, ResponseFunction respfunc)
 }
 
 const char *
-search(const char* deck, const char* field, const char* entry, ResponseFunction respf)
+ac_search(const char* deck, const char* field, const char* entry, ResponseFunction respf)
 {
    char *request;
 
@@ -96,7 +96,7 @@ search(const char* deck, const char* field, const char* entry, ResponseFunction 
 }
 
 const char *
-search_query(const char *query, ResponseFunction respf)
+ac_search_query(const char *query, ResponseFunction respf)
 {
    char *request;
 
@@ -108,7 +108,7 @@ search_query(const char *query, ResponseFunction respf)
 }
 
 const char *
-action_query(const char *action, const char *query, ResponseFunction respf)
+ac_action_query(const char *action, const char *query, ResponseFunction respf)
 {
    char *request;
 
@@ -201,7 +201,7 @@ check_card(const ankicard ac)
 }
 
 const char*
-addNote(const ankicard ac)
+ac_addNote(const ankicard ac)
 {
    const char *err = check_card(ac);
 

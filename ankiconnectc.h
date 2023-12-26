@@ -15,14 +15,14 @@ typedef struct {
 ankicard* new_ankicard();
 
 /* Perform a database search. Result is passed to the response function. */
-const char *search(const char* deck, const char* field, const char* entry, ResponseFunction respf);
+const char *ac_search(const char* deck, const char* field, const char* entry, ResponseFunction respf);
 
-const char *search_query(const char *query, ResponseFunction respf);
+const char *ac_search_query(const char *query, ResponseFunction respf);
 
-const char *action_query(const char *action, const char *query, ResponseFunction respf);
+const char *ac_action_query(const char *action, const char *query, ResponseFunction respf);
 
 /* Add ankicard to anki  */
-const char *addNote(ankicard ac);
+const char *ac_addNote(ankicard ac);
 
 /* Print contents of an anki card */
-void print_anki_card(ankicard ac);
+void ac_print_anki_card(ankicard ac);
